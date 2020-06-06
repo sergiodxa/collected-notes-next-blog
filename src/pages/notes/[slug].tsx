@@ -42,32 +42,36 @@ export default function Articles(
       <header className="max-w-screen-lg mx-auto mt-24">
         <h2 className="font-semibold tracking-tight">
           <Link href="/">
-            <a>{isFallback ? "Loading site..." : props.site.name}</a>
+            <a>{isFallback ? "Loading site title..." : props.site.name}</a>
           </Link>
         </h2>
       </header>
       <article
         className="markdown max-w-lecture mx-auto space-y-4"
         dangerouslySetInnerHTML={{
-          __html: isFallback ? "Loading content..." : marked(props.note.body),
+          __html: isFallback
+            ? "<h1>Loading note title...</h1><p>Loading note body...</p>"
+            : marked(props.note.body),
         }}
       />
-      <footer className="border-t border-gray-600 pt-4 px-4">
-        {isFallback ? (
-          "Loading metadata..."
-        ) : (
-          <p className="text-gray-600 text-xs">
-            Updated on{" "}
-            <time dateTime={props.note.updated_at}>
-              {new Intl.DateTimeFormat("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }).format(new Date(props.note.updated_at))}
-            </time>
-          </p>
-        )}
+      <footer className="border-t border-gray-600 mt-4 pt-4 px-4">
+        <p className="text-gray-600 text-xs">
+          {isFallback ? (
+            "Loading note metadata..."
+          ) : (
+            <>
+              Updated on{" "}
+              <time dateTime={props.note.updated_at}>
+                {new Intl.DateTimeFormat("en-US", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }).format(new Date(props.note.updated_at))}
+              </time>
+            </>
+          )}
+        </p>
       </footer>
     </section>
   );
