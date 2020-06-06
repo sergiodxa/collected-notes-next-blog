@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import { Note } from "data/notes";
 import { readSite, Site, useSite } from "data/site";
 
 export const getStaticProps: GetStaticProps<Site> = async () => {
@@ -9,7 +8,7 @@ export const getStaticProps: GetStaticProps<Site> = async () => {
   return { props: { site, notes } };
 };
 
-export default function Articles(
+export default function Notes(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { data }= useSite(process.env.SITE_PATH, {

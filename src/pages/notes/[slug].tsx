@@ -4,6 +4,7 @@ import {
   InferGetStaticPropsType,
   GetStaticPaths,
 } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import marked from "marked";
 import { readNote, Note } from "data/notes";
@@ -33,12 +34,31 @@ export const getStaticProps: GetStaticProps<{
   return { props: { note, site } };
 };
 
-export default function Articles(
+export default function NotePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { isFallback } = useRouter();
+  const title = isFallback ? "Loading title..." : props.note.title;
+  const headline = isFallback ? "Loading description..." : props.note.headline;
+
   return (
     <section className="max-w-screen-lg mx-auto mt-24">
+      <Head>
+        <title>{title}</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="image"
+          content={`https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dcontentz%26title%3D${title}%26description%3D${headline}`}
+        />
+        <meta
+          name="twitter:image"
+          content={`https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dcontentz%26title%3D${title}%26description%3D${headline}`}
+        />
+        <meta
+          property="og:image"
+          content={`https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dcontentz%26title%3D${title}%26description%3D${headline}`}
+        />
+      </Head>
       <header className="max-w-screen-lg mx-auto mt-24">
         <h2 className="font-semibold tracking-tight">
           <Link href="/">
