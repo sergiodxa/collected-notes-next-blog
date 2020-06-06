@@ -26,5 +26,5 @@ export function readSite(site: string): Promise<Site> {
 }
 
 export function useSite(site: string, options: ConfigInterface) {
-  return useSWR<Site, never>(site, readSite, { suspense: true, ...options });
+  return useSWR<Site, never>(site, readSite, options);
 }

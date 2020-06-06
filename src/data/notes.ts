@@ -21,8 +21,5 @@ export function readNote(site: string, slug: string): Promise<Note> {
 }
 
 export function useNote(site: string, slug: string, options: ConfigInterface) {
-  return useSWR<Note, never>([site, slug], readNote, {
-    suspense: true,
-    ...options,
-  });
+  return useSWR<Note, never>([site, slug], readNote, options);
 }
