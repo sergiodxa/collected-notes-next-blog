@@ -14,7 +14,7 @@ html {
   }
 
   & h2 {
-    @apply text-lg font-semibold leading-7 text-gray-800;
+    @apply text-lg font-semibold leading-7 text-gray-200;
   }
 
   & ul li {
@@ -27,7 +27,7 @@ html {
   }
 
   & a {
-    @apply underline text-gray-800;
+    @apply underline text-gray-200;
   }
 
   & * + h2 {
@@ -45,6 +45,7 @@ html {
   & * + li {
     @apply mt-3;
   }
+
   & * + p {
     @apply mt-4;
   }

@@ -54,7 +54,7 @@ export default function Articles(
             : marked(props.note.body),
         }}
       />
-      <footer className="border-t border-gray-600 mt-4 pt-4 px-4">
+      <footer className="border-t border-gray-600 mt-4 mb-12 pt-4 px-4">
         <p className="text-gray-600 text-xs">
           {isFallback ? (
             "Loading note metadata..."
