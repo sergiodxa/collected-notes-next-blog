@@ -1,0 +1,58 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+
+html {
+  font-size: 20px;
+  @apply bg-black text-white antialiased;
+}
+.markdown {
+  @apply text-base leading-relaxed text-gray-200 whitespace-pre-wrap;
+
+  & h1 {
+    @apply text-4xl leading-10 font-extrabold text-gray-200 tracking-wide;
+  }
+
+  & h2 {
+    @apply text-lg font-semibold leading-7 text-gray-800;
+  }
+
+  & ul li {
+    @apply relative pl-5;
+  }
+
+  & ul li::before {
+    content: "";
+    @apply absolute left-0 top-0 block h-2 w-2 rounded-full bg-gray-300;
+  }
+
+  & a {
+    @apply underline text-gray-800;
+  }
+
+  & * + h2 {
+    @apply mt-8;
+  }
+
+  & * + ol {
+    @apply mt-4;
+  }
+
+  & * + ul {
+    @apply mt-4;
+  }
+
+  & * + li {
+    @apply mt-3;
+  }
+  & * + p {
+    @apply mt-4;
+  }
+
+  & h2 + p {
+    @apply mt-2;
+  }
+}
+
+/* purgecss end ignore */
+@tailwind utilities;

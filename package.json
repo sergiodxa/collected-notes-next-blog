@@ -1,0 +1,27 @@
+{
+  "name": "collected-notes-next-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sergio Xalambrí <hello@sergiodxa.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "swr": "^0.2.2",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.11",
+    "@types/react": "^16.9.35",
+    "autoprefixer": "^9.8.0",
+    "marked": "^1.1.0",
+    "postcss-nesting": "^7.0.1",
+    "typescript": "^3.9.5"
+  }
+}
